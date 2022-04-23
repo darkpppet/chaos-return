@@ -16,49 +16,49 @@
         <!-- 주문서 성공 확률들 설정 부분 -->
         <div>
             <ScrollSetter
-                imgSrc="/images/Use_Chaos_Scroll.webp"
+                imgSrc="./images/Use_Chaos_Scroll.webp"
                 text="혼돈의 주문서 성공 확률"
                 min={1}
                 max={100}
                 bind:value={$chaosP}
             />
             <ScrollSetter
-                imgSrc="/images/Use_Chaos_Scroll.webp"
+                imgSrc="./images/Use_Chaos_Scroll.webp"
                 text="긍정의 혼돈 주문서 성공 확률"
                 min={1}
                 max={100}
                 bind:value={$chaosOfGoodnessP}
             />
             <ScrollSetter
-                imgSrc="/images/Use_Chaos_Scroll.webp"
+                imgSrc="./images/Use_Chaos_Scroll.webp"
                 text="놀라운 혼돈의 주문서 성공 확률"
                 min={1}
                 max={100}
                 bind:value={$incredibleChaosP}
             />
             <ScrollSetter
-                imgSrc="/images/Use_Chaos_Scroll.webp"
+                imgSrc="./images/Use_Chaos_Scroll.webp"
                 text="놀라운 긍정의 혼돈 주문서 성공 확률"
                 min={1}
                 max={100}
                 bind:value={$incredibleChaosOfGoodnessP}
             />
             <ScrollSetter
-                imgSrc="/images/Use_Innocence_Scroll.webp"
+                imgSrc="./images/Use_Innocence_Scroll.webp"
                 text="이노센트 주문서 성공 확률"
                 min={1}
                 max={100}
                 bind:value={$innocentP}
             />
             <ScrollSetter
-                imgSrc="/images/Use_Clean_Slate_Scroll.webp"
+                imgSrc="./images/Use_Clean_Slate_Scroll.webp"
                 text="순백의 주문서 성공 확률"
                 min={1}
                 max={100}
                 bind:value={$pureP}
             />
             <ScrollSetter
-                imgSrc="/images/Use_Golden_Hammer.webp"
+                imgSrc="./images/Use_Golden_Hammer.webp"
                 text="황금 망치 성공 확률"
                 min={1}
                 max={100}

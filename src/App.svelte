@@ -42,14 +42,14 @@
 			class="square-button"
 			on:click={toggleShowSetting}
 		>
-			<img src="/images/settings.svg" alt="설정" />
+			<img src="./images/settings.svg" alt="설정" />
 		</button>
 		<!-- 초기화 버튼 -->
 		<button
 			class="square-button"
 			on:click={reset}
 		>
-			<img src="/images/reset.svg" alt="초기화" />
+			<img src="./images/reset.svg" alt="초기화" />
 		</button>
 	</div>
     <!-- 세팅 모달 부분 -->

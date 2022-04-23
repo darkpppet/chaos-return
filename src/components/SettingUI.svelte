@@ -32,7 +32,7 @@
                 class="square-button"
                 on:click={dispatchClose}
             >
-                <img src="/images/arrow--left.svg" alt="X" />
+                <img src="./images/arrow--left.svg" alt="X" />
             </button>
         </div>
         <!-- 진짜 세팅 컴포넌트들 있는 부분 -->

@@ -128,31 +128,31 @@
     <h1>사용</h1>
     <div>
         <button on:click={useReturn} disabled={$isReturned}>
-            <ImageText imgSrc="/images/Return_Scroll.png" text="리턴 스크롤 사용" />
+            <ImageText imgSrc="./images/Return_Scroll.png" text="리턴 스크롤 사용" />
         </button>
         <button on:click={useRecovery} disabled={$isRecoveried}>
-            <ImageText imgSrc="/images/Recovery_Shield.png" text="리커버리 실드 사용" />
+            <ImageText imgSrc="./images/Recovery_Shield.png" text="리커버리 실드 사용" />
         </button>
         <button on:click={useChaos} disabled={$canUpgradeCount === 0}>
-            <ImageText imgSrc="/images/Use_Chaos_Scroll.webp" text={`혼돈의 주문서 ${$chaosP}% 사용`} />
+            <ImageText imgSrc="./images/Use_Chaos_Scroll.webp" text={`혼돈의 주문서 ${$chaosP}% 사용`} />
         </button>
         <button on:click={useChaosOfGoodness} disabled={$canUpgradeCount === 0}>
-            <ImageText imgSrc="/images/Use_Chaos_Scroll.webp" text={`긍정의 혼돈 주문서 ${$chaosOfGoodnessP}% 사용`} />
+            <ImageText imgSrc="./images/Use_Chaos_Scroll.webp" text={`긍정의 혼돈 주문서 ${$chaosOfGoodnessP}% 사용`} />
         </button>
         <button on:click={useIncredibleChaos} disabled={$canUpgradeCount === 0}>
-            <ImageText imgSrc="/images/Use_Chaos_Scroll.webp" text={`놀라운 혼돈의 주문서 ${$incredibleChaosP}% 사용`} />
+            <ImageText imgSrc="./images/Use_Chaos_Scroll.webp" text={`놀라운 혼돈의 주문서 ${$incredibleChaosP}% 사용`} />
         </button>
         <button on:click={useIncredibleChaosOfGoodness} disabled={$canUpgradeCount === 0}>
-            <ImageText imgSrc="/images/Use_Chaos_Scroll.webp" text={`놀라운 긍정의 혼돈 주문서 ${$incredibleChaosOfGoodnessP}% 사용`} />
+            <ImageText imgSrc="./images/Use_Chaos_Scroll.webp" text={`놀라운 긍정의 혼돈 주문서 ${$incredibleChaosOfGoodnessP}% 사용`} />
         </button>
         <button on:click={useInneocent} disabled={$succUpgradeCount === 0 && $failUpgradeCount === 0 && !$isHammered}>
-            <ImageText imgSrc="/images/Use_Innocence_Scroll.webp" text={`이노센트 주문서 ${$innocentP}% 사용`} />
+            <ImageText imgSrc="./images/Use_Innocence_Scroll.webp" text={`이노센트 주문서 ${$innocentP}% 사용`} />
         </button>
         <button on:click={usePure} disabled={$failUpgradeCount === 0}>
-            <ImageText imgSrc="/images/Use_Clean_Slate_Scroll.webp" text={`순백의 주문서 ${$pureP}% 사용`} />
+            <ImageText imgSrc="./images/Use_Clean_Slate_Scroll.webp" text={`순백의 주문서 ${$pureP}% 사용`} />
         </button>
         <button on:click={useHammer} disabled={$isHammered}>
-            <ImageText imgSrc="/images/Use_Golden_Hammer.webp" text={`황금 망치 ${$hammerP}% 사용`} />
+            <ImageText imgSrc="./images/Use_Golden_Hammer.webp" text={`황금 망치 ${$hammerP}% 사용`} />
         </button>
     </div>
     {#if showReturnUI}
