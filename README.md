@@ -2,7 +2,7 @@
 
 ## https://darkpppet.github.io/chaos-return/
 
-* Svelte" 3.47.0 (with Typescript 4.6.3)
+* Svelte 3.47.0 (with Typescript 4.6.3)
 
 ---
 
