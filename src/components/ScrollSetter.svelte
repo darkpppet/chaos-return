@@ -18,14 +18,14 @@
 
     export let value: number; //확률
 
-    const checkValue = () => {
-        if (value == null) {
+    const checkValue = () => { //잘못된 입력 거르기
+        if (value == null) { //숫자가 아니면 디폴트값으로
             value = defaultValue;
         }
-        if (value < min) {
+        if (value < min) { //최소값보다 작으면 최소값으로
             value = min;
         } 
-        if (value > max) {
+        if (value > max) { //최대값보다 크면 최대값으로
             value = max;
         }
     }
