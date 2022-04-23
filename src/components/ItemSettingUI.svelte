@@ -5,6 +5,7 @@
 -->
 
 <script lang="ts">
+    import ScrollSetter from "./ScrollSetter.svelte";
     import { itemStats, maxUpgrade } from "../assets/store/itemStore";
 
     const reset = () => { //기본값으로 설정하는 함수
@@ -17,28 +18,112 @@
     <div>
         <h2>기본옵션 설정</h2>
         <!-- 추옵 부분 -->
-        <div>
+        <div class="stat-setting-container">
             <div>
-                <span>STR: <input type="number" min={0} bind:value={$itemStats["STR"]}></span>
-                <span>DEX: <input type="number" min={0} bind:value={$itemStats["DEX"]}></span>
-                <span>INT: <input type="number" min={0} bind:value={$itemStats["INT"]}></span>
-                <span>LUK: <input type="number" min={0} bind:value={$itemStats["LUK"]}></span>
-                <span>공격력: <input type="number" min={0} bind:value={$itemStats["공격력"]}></span>
-                <span>마력: <input type="number" min={0} bind:value={$itemStats["마력"]}></span>
+                <ScrollSetter
+                    text="STR"
+                    defaultValue={itemStats.getDefault()["STR"]}
+                    min={0}
+                    max={99999}
+                    bind:value={$itemStats["STR"]}
+                    disableRange={true}
+                />
+                <ScrollSetter
+                    text="DEX"
+                    defaultValue={itemStats.getDefault()["DEX"]}
+                    min={0}
+                    max={99999}
+                    bind:value={$itemStats["DEX"]}
+                    disableRange={true}
+                />
+                <ScrollSetter
+                    text="INT"
+                    defaultValue={itemStats.getDefault()["INT"]}
+                    min={0}
+                    max={99999}
+                    bind:value={$itemStats["INT"]}
+                    disableRange={true}
+                />
+                <ScrollSetter
+                    text="LUK"
+                    defaultValue={itemStats.getDefault()["LUK"]}
+                    min={0}
+                    max={99999}
+                    bind:value={$itemStats["LUK"]}
+                    disableRange={true}
+                />
+                <ScrollSetter
+                    text="공격력"
+                    defaultValue={itemStats.getDefault()["공격력"]}
+                    min={0}
+                    max={99999}
+                    bind:value={$itemStats["공격력"]}
+                    disableRange={true}
+                />
+                <ScrollSetter
+                    text="마력"
+                    defaultValue={itemStats.getDefault()["마력"]}
+                    min={0}
+                    max={99999}
+                    bind:value={$itemStats["마력"]}
+                    disableRange={true}
+                />
             </div>
             <div>
-                <span>방어력: <input type="number" min={0} bind:value={$itemStats["방어력"]}></span>
-                <span>이동속도: <input type="number" min={0} bind:value={$itemStats["이동속도"]}></span>
-                <span>점프력: <input type="number" min={0} bind:value={$itemStats["점프력"]}></span>
-                <span>최대 HP: <input type="number" min={0} bind:value={$itemStats["최대 HP"]}></span>
-                <span>최대 MP: <input type="number" min={0} bind:value={$itemStats["최대 MP"]}></span>
+                <ScrollSetter
+                    text="방어력"
+                    defaultValue={itemStats.getDefault()["방어력"]}
+                    min={0}
+                    max={99999}
+                    bind:value={$itemStats["방어력"]}
+                    disableRange={true}
+                />
+                <ScrollSetter
+                    text="이동속도"
+                    defaultValue={itemStats.getDefault()["이동속도"]}
+                    min={0}
+                    max={99999}
+                    bind:value={$itemStats["이동속도"]}
+                    disableRange={true}
+                />
+                <ScrollSetter
+                    text="점프력"
+                    defaultValue={itemStats.getDefault()["점프력"]}
+                    min={0}
+                    max={99999}
+                    bind:value={$itemStats["점프력"]}
+                    disableRange={true}
+                />
+                <ScrollSetter
+                    text="최대 HP"
+                    defaultValue={itemStats.getDefault()["최대 HP"]}
+                    min={0}
+                    max={99999}
+                    bind:value={$itemStats["최대 HP"]}
+                    disableRange={true}
+                />
+                <ScrollSetter
+                    text="최대 MP"
+                    defaultValue={itemStats.getDefault()["최대 MP"]}
+                    min={0}
+                    max={99999}
+                    bind:value={$itemStats["최대 MP"]}
+                    disableRange={true}
+                />
                 <span>&nbsp;</span>
             </div>
         </div>
         <hr />
         <!-- 업횟 부분 -->
         <div>
-            <span>업그레이드 가능 횟수: <input type="number" min={0} bind:value={$maxUpgrade}></span>
+            <ScrollSetter
+                text="업그레이드 가능 횟수"
+                defaultValue={maxUpgrade.getDefault()}
+                min={0}
+                max={99999}
+                bind:value={$maxUpgrade}
+                disableRange={true}
+            />
         </div>
     </div>
     <!-- 초기화 버튼 -->
@@ -50,18 +135,19 @@
         margin: 5px;
     }
 
-    main>div {
+    main > div {
         height: 17em;
         border: 1px black solid;
         border-radius: 5px;
         padding: 5px;
     }
 
-    main>div>div {
+    .stat-setting-container {
         display: flex;
+        justify-content: space-around;
     }
 
-    main>div>div>div {
+    .stat-setting-container > div {
         margin: 3px;
         display: flex;
         flex-direction: column;
@@ -70,14 +156,6 @@
 
     main h2 {
         margin: 6px auto;
-    }
-
-    main span {
-        margin: 2px;
-    }
-
-    main input {
-        width: 4em;
     }
 
     main button {

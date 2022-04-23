@@ -5,6 +5,7 @@
 -->
 
 <script lang="ts">
+    import { get } from "svelte/store";
     import ImageText from "./ImageText.svelte";
     import ReturnUI from "./ReturnUI.svelte";
     import { totalStats, enhancedStats,
@@ -14,7 +15,7 @@
     import { chaosCount, chaosOfGoodnessCount, incredibleChaosCount, incredibleChaosOfGoodnessCount,
         returnCount, recoveryCount, innocentCount, pureCount, hammerCount } from "../assets/store/countStore"
     import { enhanceHistory } from "../assets/store/historyStore";
-    import type { WritableWithAdd, WritableWithSub, WritableWithReset } from "../assets/store/storeUtils";
+    import type { NewWritable, WritableWithSub } from "../assets/store/storeUtils";
     import { type ChaosName, isSucc, createChaosStats } from "../assets/random";
     import { type Stats, zeroStats, addStats, updatedStatToString } from "../assets/stats";
 
@@ -36,17 +37,17 @@
     }
 
     //바인딩 되는 혼줌류 사용 함수를 생성하는 함수
-    const makeUseChaosFunc = (succP: number, chaosName: ChaosName, chaosCountWritable: WritableWithAdd<number> & WritableWithSub<number> & WritableWithReset<number>) => (() => {
-        if (isSucc(succP)) {
+    const makeUseChaosFunc = (succP: NewWritable<number>, chaosName: ChaosName, chaosCountWritable: NewWritable<number> & WritableWithSub<number>) => (() => {
+        if (isSucc(get(succP))) {
             chaosCountWritable.add(1);
             const updatedStats = createChaosStats(chaosName, $totalStats);
-            enhanceHistory.add([`${chaosName} ${succP}%가 한 순간 빛나더니 신비로운 힘이 그대로 전해졌습니다.`]);
-            enhanceHistory.add([`${chaosName} ${succP}%의 힘이 적용되었습니다. (${updatedStatToString(updatedStats)})`]);
+            enhanceHistory.add([`${chaosName} ${get(succP)}%가 한 순간 빛나더니 신비로운 힘이 그대로 전해졌습니다.`]);
+            enhanceHistory.add([`${chaosName} ${get(succP)}%의 힘이 적용되었습니다. (${updatedStatToString(updatedStats)})`]);
 
             if ($isReturned) { //리턴 써놨으면
                 updatedStatsForReturn = updatedStats;
                 chaosNameForReturn = chaosName;
-                succPForReturn = succP;
+                succPForReturn = get(succP);
                 showReturnUI = true; //ReturnUI 켜고 handleReturnMessage가 나머지 실행함
             } else {
                 succUpgradeCount.add(1);
@@ -54,12 +55,12 @@
             }
         } else {
             if ($isRecoveried) {
-                enhanceHistory.add([`리커버리 실드의 효과로 ${chaosName} ${succP}%가 소멸되지 않았습니다.`]);
+                enhanceHistory.add([`리커버리 실드의 효과로 ${chaosName} ${get(succP)}%가 소멸되지 않았습니다.`]);
             } else {
                 chaosCountWritable.add(1);
             }
 
-            enhanceHistory.add([`${chaosName} ${succP}%가 한 순간 빛났지만 아무런 변화도 일어나지 않았습니다.`]);
+            enhanceHistory.add([`${chaosName} ${get(succP)}%가 한 순간 빛났지만 아무런 변화도 일어나지 않았습니다.`]);
 
             if ($isReturned) {
                 enhanceHistory.add(["리턴 주문서의 효과가 사라졌습니다."]);
@@ -72,10 +73,10 @@
         isReturned.set(false);
     })
 
-    const useChaos = makeUseChaosFunc($chaosP, "혼돈의 주문서", chaosCount); //혼줌 사용 함수
-    const useChaosOfGoodness = makeUseChaosFunc($chaosOfGoodnessP, "긍정의 혼돈 주문서", chaosOfGoodnessCount); //긍혼 사용 함수
-    const useIncredibleChaos = makeUseChaosFunc($incredibleChaosP, "놀라운 혼돈의 주문서", incredibleChaosCount); //놀혼 사용 함수
-    const useIncredibleChaosOfGoodness = makeUseChaosFunc($incredibleChaosOfGoodnessP, "놀라운 긍정의 혼돈 주문서", incredibleChaosOfGoodnessCount); //놀긍 사용 함수
+    const useChaos = makeUseChaosFunc(chaosP, "혼돈의 주문서", chaosCount); //혼줌 사용 함수
+    const useChaosOfGoodness = makeUseChaosFunc(chaosOfGoodnessP, "긍정의 혼돈 주문서", chaosOfGoodnessCount); //긍혼 사용 함수
+    const useIncredibleChaos = makeUseChaosFunc(incredibleChaosP, "놀라운 혼돈의 주문서", incredibleChaosCount); //놀혼 사용 함수
+    const useIncredibleChaosOfGoodness = makeUseChaosFunc(incredibleChaosOfGoodnessP, "놀라운 긍정의 혼돈 주문서", incredibleChaosOfGoodnessCount); //놀긍 사용 함수
 
     const useReturn = () => { //리턴 사용 함수
         returnCount.add(1);
@@ -127,12 +128,6 @@
 <main>
     <h1>사용</h1>
     <div>
-        <button on:click={useReturn} disabled={$isReturned}>
-            <ImageText imgSrc="./images/Return_Scroll.png" text="리턴 스크롤 사용" />
-        </button>
-        <button on:click={useRecovery} disabled={$isRecoveried}>
-            <ImageText imgSrc="./images/Recovery_Shield.png" text="리커버리 실드 사용" />
-        </button>
         <button on:click={useChaos} disabled={$canUpgradeCount === 0}>
             <ImageText imgSrc="./images/Use_Chaos_Scroll.webp" text={`혼돈의 주문서 ${$chaosP}% 사용`} />
         </button>
@@ -144,6 +139,12 @@
         </button>
         <button on:click={useIncredibleChaosOfGoodness} disabled={$canUpgradeCount === 0}>
             <ImageText imgSrc="./images/Use_Chaos_Scroll.webp" text={`놀라운 긍정의 혼돈 주문서 ${$incredibleChaosOfGoodnessP}% 사용`} />
+        </button>
+        <button on:click={useReturn} disabled={$isReturned}>
+            <ImageText imgSrc="./images/Return_Scroll.png" text="리턴 스크롤 사용" />
+        </button>
+        <button on:click={useRecovery} disabled={$isRecoveried}>
+            <ImageText imgSrc="./images/Recovery_Shield.png" text="리커버리 실드 사용" />
         </button>
         <button on:click={useInneocent} disabled={$succUpgradeCount === 0 && $failUpgradeCount === 0 && !$isHammered}>
             <ImageText imgSrc="./images/Use_Innocence_Scroll.webp" text={`이노센트 주문서 ${$innocentP}% 사용`} />

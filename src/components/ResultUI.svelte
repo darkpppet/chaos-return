@@ -15,20 +15,6 @@
     <h1>사용량</h1>
     <p>
         <ImageText
-            imgSrc="./images/Return_Scroll.png"
-            text="리턴 스크롤"
-        />
-        <span><strong>x{$returnCount}</strong></span>
-    </p>
-    <p>
-        <ImageText
-            imgSrc="./images/Recovery_Shield.png"
-            text="리커버리 실드"
-        />
-        <span><strong>x{$recoveryCount}</strong></span>
-    </p>
-    <p>
-        <ImageText
             imgSrc="./images/Use_Chaos_Scroll.webp"
             text={`혼돈의 주문서 ${$chaosP}%`}
         />
@@ -54,6 +40,20 @@
             text={`놀라운 긍정의 혼돈 주문서 ${$incredibleChaosOfGoodnessP}%`}
         />
         <span><strong>x{$incredibleChaosOfGoodnessCount}</strong></span>
+    </p>
+    <p>
+        <ImageText
+            imgSrc="./images/Return_Scroll.png"
+            text="리턴 스크롤"
+        />
+        <span><strong>x{$returnCount}</strong></span>
+    </p>
+    <p>
+        <ImageText
+            imgSrc="./images/Recovery_Shield.png"
+            text="리커버리 실드"
+        />
+        <span><strong>x{$recoveryCount}</strong></span>
     </p>
     <p>
         <ImageText

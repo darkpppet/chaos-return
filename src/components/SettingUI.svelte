@@ -26,40 +26,33 @@
     <!-- 세팅 부분 -->
     <div class="setting-container modal">
         <!-- header -->
-        <div class="top-bar">
-            <h1>설정</h1>
-            <button
-                class="square-button"
-                on:click={dispatchClose}
-            >
-                <img src="./images/arrow--left.svg" alt="X" />
-            </button>
-        </div>
+        <h1>설정</h1>
         <!-- 진짜 세팅 컴포넌트들 있는 부분 -->
         <div class="setting">
             <ProbSettingUI />
             <ItemSettingUI />
         </div>
+        <!-- 확인 버튼 -->
+        <button on:click={dispatchClose}>확인</button>
     </div>
 </main>
 
 <style>
     .setting-container {
+        width: 780px;
         border-radius: 5px;
         padding: 5px;
     }
 
-    .top-bar {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .top-bar h1 {
+    h1 {
         margin: 15px;
     }
 
-    .top-bar button {
-        margin: 10px;
+    main button {
+        width: 6em;
+        height: 55px;
+        margin: 15px;
+        font-size: 30px;
     }
 
     .setting {

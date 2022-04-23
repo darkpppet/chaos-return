@@ -111,7 +111,7 @@
     }
 
     main div {
-        width: 267px;
+        width: 285px;
         margin: auto;
         padding: 0px;
         text-align: left;
@@ -143,7 +143,7 @@
     main div p:first-child span:nth-child(2),
     .stats>span:not(:last-child) {
         display: inline-block;
-        width: 4em;
+        width: 4.5em;
         text-align: left;
     }
 
