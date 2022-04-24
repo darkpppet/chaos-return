@@ -24,7 +24,6 @@
                     text="STR"
                     defaultValue={itemStats.getDefault()["STR"]}
                     min={0}
-                    max={99999}
                     bind:value={$itemStats["STR"]}
                     disableRange={true}
                 />
@@ -32,7 +31,6 @@
                     text="DEX"
                     defaultValue={itemStats.getDefault()["DEX"]}
                     min={0}
-                    max={99999}
                     bind:value={$itemStats["DEX"]}
                     disableRange={true}
                 />
@@ -40,7 +38,6 @@
                     text="INT"
                     defaultValue={itemStats.getDefault()["INT"]}
                     min={0}
-                    max={99999}
                     bind:value={$itemStats["INT"]}
                     disableRange={true}
                 />
@@ -48,7 +45,6 @@
                     text="LUK"
                     defaultValue={itemStats.getDefault()["LUK"]}
                     min={0}
-                    max={99999}
                     bind:value={$itemStats["LUK"]}
                     disableRange={true}
                 />
@@ -56,7 +52,6 @@
                     text="공격력"
                     defaultValue={itemStats.getDefault()["공격력"]}
                     min={0}
-                    max={99999}
                     bind:value={$itemStats["공격력"]}
                     disableRange={true}
                 />
@@ -64,7 +59,6 @@
                     text="마력"
                     defaultValue={itemStats.getDefault()["마력"]}
                     min={0}
-                    max={99999}
                     bind:value={$itemStats["마력"]}
                     disableRange={true}
                 />
@@ -74,7 +68,6 @@
                     text="방어력"
                     defaultValue={itemStats.getDefault()["방어력"]}
                     min={0}
-                    max={99999}
                     bind:value={$itemStats["방어력"]}
                     disableRange={true}
                 />
@@ -82,7 +75,6 @@
                     text="이동속도"
                     defaultValue={itemStats.getDefault()["이동속도"]}
                     min={0}
-                    max={99999}
                     bind:value={$itemStats["이동속도"]}
                     disableRange={true}
                 />
@@ -90,7 +82,6 @@
                     text="점프력"
                     defaultValue={itemStats.getDefault()["점프력"]}
                     min={0}
-                    max={99999}
                     bind:value={$itemStats["점프력"]}
                     disableRange={true}
                 />
@@ -98,7 +89,6 @@
                     text="최대 HP"
                     defaultValue={itemStats.getDefault()["최대 HP"]}
                     min={0}
-                    max={99999}
                     bind:value={$itemStats["최대 HP"]}
                     disableRange={true}
                 />
@@ -106,7 +96,6 @@
                     text="최대 MP"
                     defaultValue={itemStats.getDefault()["최대 MP"]}
                     min={0}
-                    max={99999}
                     bind:value={$itemStats["최대 MP"]}
                     disableRange={true}
                 />
@@ -120,7 +109,6 @@
                 text="업그레이드 가능 횟수"
                 defaultValue={maxUpgrade.getDefault()}
                 min={0}
-                max={99999}
                 bind:value={$maxUpgrade}
                 disableRange={true}
             />

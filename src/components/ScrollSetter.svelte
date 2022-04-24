@@ -12,13 +12,13 @@
     export let text: string; //텍스트
     export let defaultValue: number; //디폴트값
     export let min: number; //최소
-    export let max: number | null = null; //최대
+    export let max: number = 99999; //최대; 기본값: 99999
     export let disableRange: boolean = false; //range 비활성화 할지
     export let isPercent: boolean = false; //%인지
 
     export let value: number; //확률
 
-    const checkValue = () => { //잘못된 입력 거르기
+    const checkValue = () => { //잘못된 입력 거르는 함수
         if (value == null) { //숫자가 아니면 디폴트값으로
             value = defaultValue;
         }

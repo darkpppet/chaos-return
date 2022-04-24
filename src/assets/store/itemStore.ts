@@ -41,6 +41,6 @@ export const itemStats = createStats({ //기본 아이템 수치
 export const enhancedStats = createStats({...zeroStats}); //강화된 수치
 
 export const totalStats = derived( //총 아이템 수치
-	[itemStats, enhancedStats],
-	([$itemStats, $enhancedStats]) => addStats($itemStats, $enhancedStats)
+    [itemStats, enhancedStats],
+    ([$itemStats, $enhancedStats]) => addStats($itemStats, $enhancedStats)
 );

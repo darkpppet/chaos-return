@@ -6,12 +6,12 @@
 -->
 
 <script lang="ts">
-	import { beforeUpdate, afterUpdate } from 'svelte';
+    import { beforeUpdate, afterUpdate } from 'svelte';
     import { enhanceHistory } from "../assets/store/historyStore";
 
     //채팅 많아지면 자동 스크롤 해주는 부분
     let historyUI: HTMLElement; //bind됨
-	let needAutoScroll: boolean; 
+    let needAutoScroll: boolean; 
 
     beforeUpdate(() => {
         needAutoScroll = historyUI && (historyUI.offsetHeight + historyUI.scrollTop) > (historyUI.scrollHeight - 20);

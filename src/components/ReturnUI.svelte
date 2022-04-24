@@ -5,10 +5,10 @@
 -->
 
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
+    import { createEventDispatcher } from 'svelte';
     import ItemUI from "./ItemUI.svelte";
     import { type Stats, zeroStats, addStats } from "../assets/stats";
-	import { totalStats, itemStats, enhancedStats,
+    import { totalStats, itemStats, enhancedStats,
         succUpgradeCount, failUpgradeCount, canUpgradeCount,
         isHammered } from "../assets/store/itemStore";
     import type { ChaosName } from '../assets/random';
@@ -17,7 +17,7 @@
     export let chaosName: ChaosName; //주문서 이름(이벤트로 올려야함)
     export let succP: number; //성공 확률(이벤트로 올려야함)
 
-	const dispatch = createEventDispatcher(); //이벤트 보내주는거
+    const dispatch = createEventDispatcher(); //이벤트 보내주는거
 
     const useReturn = () => { //리턴 쓸때 보낼 이벤트
         dispatch("message", {
