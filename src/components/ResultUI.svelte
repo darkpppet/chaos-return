@@ -81,8 +81,8 @@
 <style>
     main p {
         text-align: left;
-        font-size: 20px;
-        width: 16em;
+        font-size: 19px;
+        width: 17em;
         height: 36px;
         margin: 3px;
         display: flex;

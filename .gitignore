@@ -1,7 +1,6 @@
 .vscode/
+.idea/
 node_modules/
 public/build/
-package-lock.json
-package.json
 rollup.config.js
 tsconfig.json

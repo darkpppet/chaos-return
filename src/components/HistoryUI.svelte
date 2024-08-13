@@ -40,6 +40,7 @@
         width: 85%;
         height: 10em;
         margin: auto;
+        margin-top: 50px;
         padding: 5px;
         color: Orange;
         text-align: left;

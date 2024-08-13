@@ -173,7 +173,7 @@
     }
 
     main div button {
-        font-size: 18px;
+        font-size: 19px;
         margin: 3px;
         width: 17em;
     }

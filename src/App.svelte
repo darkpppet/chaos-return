@@ -48,13 +48,6 @@
         >
             <img src="./images/settings.svg" alt="설정" />
         </button>
-        <!-- 초기화 버튼 -->
-        <button
-            class="square-button"
-            on:click={reset}
-        >
-            <img src="./images/reset.svg" alt="초기화" />
-        </button>
     </div>
     <!-- 세팅 모달 부분 -->
     {#if showSetting}
@@ -76,14 +69,16 @@
         />
         <ResultUI />
     </div>
+    <!-- 초기화 버튼 -->
+    <button class="reset-button" on:click={reset}>초기화</button>
     <HistoryUI />
 </main>
 
 <style>
-    main {
+     main {
+        text-align: center;
         width: 70%;
         margin: auto;
-        text-align: center;
     }
 
     main h1 {
@@ -97,7 +92,7 @@
 
     .buttons {
         position: absolute;
-        right: 26%;
+        right: 21%;
         top: 40px;
     }
 
@@ -107,5 +102,9 @@
 
     .main-container {
         margin: 10px;
+    }
+
+    .reset-button {
+        width: 5%;
     }
 </style>

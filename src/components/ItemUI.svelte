@@ -107,7 +107,7 @@
 
 <style>
     main {
-        height: 565px;
+        height: 480px;
     }
 
     main div {
